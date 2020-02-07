@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Test</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <style>
+      body {
+        background: #fffefb;
+        font-family: "Source Sans Pro", sans-serif;
+      }
+
+      svg {
+        overflow: visible;
+      }
+
+      .nodo {
+        cursor: pointer;
+      }
+
+      .nodo circle {
+        transition: all 0.25s ease;
+      }
+
+      .nodo:hover circle {
+        transform: scale(2);
+      }
+
+      .nodo circle.active {
+        fill: lightskyblue !important;
+        transform: scale(2);
+      }
+
+      .tick line {
+        stroke: #e0e0e0;
+      }
+
+      .tick text {
+        font-size: 20px;
+        transform: translate(0px, 10px);
+        fill: #999;
+      }
+
+      .info {
+        position: fixed;
+        background: #333;
+        border-radius: 5px;
+        top: 20px;
+        left: 20px;
+        color: #999;
+        padding: 15px;
+        -webkit-box-shadow: 3px 3px 5px 2px #dedede;
+        box-shadow: 3px 3px 5px 2px #dedede;
+      }
+
+      #msg {
+        margin: 5px;
+        color: #999;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #555;
+      }
+
+      .info .inside {
+        display: flex;
+      }
+
+      .info .item {
+        margin: 5px;
+        padding-right: 5px;
+        border-right: 1px solid #555;
+        margin-top: 0;
+      }
+
+      .info span {
+        color: white;
+        display: block;
+      }
+
+      .info a.link {
+        color: white;
+        display: block;
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+      }
+
+      .info a {
+        color: white;
+        display: block;
+      }
+
+      .info a path {
+        fill: white !important;
+      }
+
+      .top {
+        margin-top: 10px;
+      }
+
+      .btm {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <svg
+      version="1.1"
+      id="canvas"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 1920 1080"
+      style="enable-background:new 0 0 1920 1080;"
+      xml:space="preserve"
+    ></svg>
+
+    <div class="info">
+      <div id="msg">Cargando datos...</div>
+      <div class="inside">
+        <div class="item usuario">Usuario: <span></span></div>
+        <div class="item fecha">Fecha de la edición: <span></span></div>
+        <div class="item por">Porcentaje editado: <span></span></div>
+        <div class="item anterior">Edición anterior: <a href="#"></a></div>
+        <div class="item siguiente">Siguiente edición: <a href="#"></a></div>
+        <a href="" class="link"
+          ><svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 60.209 60.21"
+            enable-background="new 0 0 60.209 60.21"
+            xml:space="preserve"
+          >
+            <g>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                fill="#151616"
+                d="M34.412,14.75c-1.264,1.189-2.559,2.35-3.782,3.58
+           c-0.598,0.602-1.29,0.443-1.962,0.445c-5.746,0.014-11.492,0.048-17.236-0.023c-1.275-0.014-1.661,0.294-1.652,1.614
+           c0.057,9.457,0.052,18.917,0.005,28.375c-0.007,1.225,0.214,1.678,1.58,1.668c9.458-0.066,18.919-0.068,28.375,0
+           c1.441,0.01,1.714-0.464,1.696-1.779c-0.069-5.114,0.105-10.233-0.087-15.34c-0.091-2.386,0.488-4.171,2.384-5.612
+           c0.679-0.514,1.152-1.302,1.718-1.964c0.173,0.125,0.347,0.25,0.521,0.375c0,5.296,0,10.59,0,15.887
+           c0,3.854-0.038,7.707,0.023,11.56c0.016,1.095-0.3,1.434-1.411,1.432c-12.682-0.036-25.363-0.041-38.044,0.005
+           c-1.223,0.005-1.312-0.499-1.311-1.482c0.025-12.611,0.02-25.223,0.011-37.835c0-0.814-0.052-1.47,1.146-1.464
+           c9.23,0.04,18.458,0.021,27.688,0.021C34.188,14.393,34.3,14.572,34.412,14.75z"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                fill="#0A0A0A"
+                d="M47.334,9.831c-4.187,0-7.687-0.048-11.183,0.027
+           c-1.209,0.025-1.532-0.355-1.536-1.539c-0.009-3.048-0.07-3.048,2.889-3.048c5.186,0,10.371,0.048,15.556-0.032
+           c1.378-0.021,1.928,0.196,1.898,1.766c-0.107,5.605-0.162,11.215,0.018,16.817c0.07,2.175-1.175,1.691-2.346,1.729
+           c-1.271,0.041-2.452,0.302-2.323-1.809c0.209-3.396,0.056-6.815,0.056-10.224c-0.198-0.148-0.396-0.298-0.595-0.446
+           c-0.375,0.559-0.671,1.194-1.138,1.662c-8.208,8.241-16.488,16.414-24.618,24.732c-1.501,1.536-2.032,0.557-3.02-0.325
+           c-1.128-1.009-1.623-1.627-0.203-3.018c8.26-8.091,16.392-16.31,24.573-24.482C45.844,11.16,46.365,10.718,47.334,9.831z"
+              />
+            </g></svg></a>
+      </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
