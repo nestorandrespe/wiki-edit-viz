@@ -31,12 +31,11 @@ server.get("/", (req, res) => {
                 fs.writeFile('./public/data/' +slug + '.json', json, 'utf8', () => {
                     
                 });
-                // res.json(data);
-                res.send('<a href="http://localhost:' + port + '/viz/?slug=' + slug + '">enlace</a>')
+                res.redirect('/viz/?slug=' + slug);
             }
         });
     } else {
-        res.send('no slug')
+        res.sendFile(__dirname + '/input.html');
     }
         
 });
