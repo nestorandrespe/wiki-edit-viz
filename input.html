@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Test</title>
+    <title>Visualizaciones de Wikipedia</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
@@ -17,11 +17,44 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        #wikiLink {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        input[type=text] {
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            width: 200px;
+        }
+        input[type=submit] {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #999;
+            color: white;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #555;
+        }
+    </style>
   </head>
 
   <body>
       <form id="wikiLink" action="">
-        <input type="text">
+        <input type="text" placeholder="Enlace del artículo en Wikipedia">
         <input type="submit" value="Cargar visualización">
       </form>
       <script>
