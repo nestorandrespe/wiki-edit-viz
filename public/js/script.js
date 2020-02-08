@@ -47,15 +47,15 @@ var locale = d3.timeFormatLocale({
     time: "%H:%M:%S",
     periods: ["AM", "PM"],
     days: [
-    "воскресенье",
-    "понедельник",
-    "вторник",
-    "среда",
-    "четверг",
-    "пятница",
-    "суббота"
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado"
     ],
-    shortDays: ["вс", "пн", "вт", "ср", "чт", "пт", "сб"],
+    shortDays: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
     months: [
     "Enero",
     "Febrero",
